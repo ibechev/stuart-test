@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import JobCreator from "./components/JobCreator";
+import Map from './components/Map';
+
+import "./App.css";
+
+// pick up address: 29 Rue du 4 Septembre
+// drop off address: 15 Rue de Bourgogne
+
+const App = () => {
+    const [ pickUpGeoCode, setPickUpGeoCode ] = useState(null);
+    const [ dropOffGeoCode, setDropOffGeoCode ] = useState(null);
+
+    const handlePickUpGeoCodeChange = (geoCode) => {
+        setPickUpGeoCode(geoCode);
+    };
+
+    const handleDropOffGeoCodeChange = (geoCode) => {
+        setDropOffGeoCode(geoCode);
+    };
+    
+    return (
+        <div className="app">
+            <Map 
+                pickUpGeoCode={ pickUpGeoCode }
+                dropOffGeoCode={ dropOffGeoCode }
+            />
+            <div className='job-creator-positioner'>
+              <JobCreator 
+                  onPickUpGeoCodeChange={ handlePickUpGeoCodeChange }
+                  onDropOffGeoCodeChange={ handleDropOffGeoCodeChange }
+              />
+            </div>
+        </div>
+    );
+};
 
 export default App;
+
+

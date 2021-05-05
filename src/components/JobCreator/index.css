@@ -1,0 +1,31 @@
+.job-creator-container {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+	padding: 16px;
+	border-radius: 8px;
+	background-color: white;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.job-creator-container div.input-wrapper:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+.job-creator-container button {
+    height: 40px;
+    width: 360px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: inherit;
+    color: white;
+    background: linear-gradient(#10a2ea, #0f99e8);
+    box-shadow: 0 1px 2px rgba(16, 162, 234, 0.1);
+}
+
+.job-creator-container button:disabled {
+    opacity: 50%;
+}
